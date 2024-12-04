@@ -58,7 +58,7 @@
   <joint name="world_joint" type="fixed">
     <parent link="world"/>
     <child link="rh_forearm"/>
-    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <origin rpy="-1.5708 3.1415 0" xyz="0.0 0.0 0.2"/>
   </joint>
   <link name="rh_forearm">
     <inertial>
@@ -1192,10 +1192,10 @@
       </geometry>
     </collision>
   </link>
-  <joint name="rh_THJ5" type="revolute">
+  <joint name="rh_THJ5" type="fixed">
     <parent link="rh_palm"/>
     <child link="rh_thbase"/>
-    <origin rpy="-0.7853981633974483 0 -1.5707963267948966" xyz="0.034 -0.00858 0.029"/>
+    <origin rpy="0.0 0.0 -1.5707963267948966" xyz="0.034 -0.00858 0.029"/>
     <axis xyz="0 0 -1"/>
     <limit effort="5.0" lower="-1.0471975511965976" upper="1.0471975511965976" velocity="4.0"/>
     <dynamics damping="0.2"/>
@@ -1240,7 +1240,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="rh_THJ4" type="revolute">
+  <joint name="rh_THJ4" type="fixed">
     <parent link="rh_thbase"/>
     <child link="rh_thproximal"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -1287,7 +1287,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="rh_THJ3" type="revolute">
+  <joint name="rh_THJ3" type="fixed">
     <parent link="rh_thproximal"/>
     <child link="rh_thhub"/>
     <origin rpy="0 0 0" xyz="0 0 0.038"/>
@@ -1341,7 +1341,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="rh_THJ2" type="revolute">
+  <joint name="rh_THJ2" type="fixed">
     <parent link="rh_thhub"/>
     <child link="rh_thmiddle"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -1388,7 +1388,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="rh_THJ1" type="revolute">
+  <joint name="rh_THJ1" type="fixed">
     <parent link="rh_thmiddle"/>
     <child link="rh_thdistal"/>
     <origin rpy="0 0 0" xyz="0 0 0.032"/>
@@ -2577,7 +2577,7 @@
   <joint name="lh_THJ5" type="revolute">
     <parent link="lh_palm"/>
     <child link="lh_thbase"/>
-    <origin rpy="-0.7853981633974483 0 1.5707963267948966" xyz="-0.034 -0.00858 0.029"/>
+    <origin rpy="-1.5707963267948966 0 1.5707963267948966" xyz="-0.034 -0.00858 0.029"/>
     <axis xyz="0 0 1"/>
     <limit effort="5.0" lower="-1.0471975511965976" upper="1.0471975511965976" velocity="4.0"/>
     <dynamics damping="0.2"/>
@@ -2622,10 +2622,10 @@
       </geometry>
     </collision>
   </link>
-  <joint name="lh_THJ4" type="revolute">
+  <joint name="lh_THJ4" type="fixed">
     <parent link="lh_thbase"/>
     <child link="lh_thproximal"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin rpy="0 -1.5708 0" xyz="0 0 0"/>
     <axis xyz="0 -1 0"/>
     <limit effort="3" lower="0.0" upper="1.2217304763960306" velocity="4.0"/>
     <dynamics damping="0.2"/>
@@ -2669,7 +2669,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="lh_THJ3" type="revolute">
+  <joint name="lh_THJ3" type="fixed">
     <parent link="lh_thproximal"/>
     <child link="lh_thhub"/>
     <origin rpy="0 0 0" xyz="0 0 0.038"/>
@@ -2723,7 +2723,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="lh_THJ2" type="revolute">
+  <joint name="lh_THJ2" type="fixed">
     <parent link="lh_thhub"/>
     <child link="lh_thmiddle"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -2770,7 +2770,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="lh_THJ1" type="revolute">
+  <joint name="lh_THJ1" type="fixed">
     <parent link="lh_thmiddle"/>
     <child link="lh_thdistal"/>
     <origin rpy="0 0 0" xyz="0 0 0.032"/>
@@ -2824,9 +2824,11 @@
       <hardwareInterface>PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
-  <joint name="right_hand_to_left_hand" type="fixed">
+  <joint name="right_hand_to_left_hand" type="prismatic">
     <parent link="rh_forearm"/>
     <child link="lh_forearm"/>
-    <origin rpy="0.0 0.0 0.0" xyz="-0.4 0.0 0.0"/>
+    <origin rpy="1.5708 0 3.1415" xyz="0.2 -0.45 0.4"/>
+    <axis xyz="-1 0 0"/>
+    <limit effort="1000" lower="0.2" upper="1" velocity="0.5"/>
   </joint>
 </robot>
