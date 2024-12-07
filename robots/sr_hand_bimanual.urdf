@@ -1529,10 +1529,19 @@
     <material>Gazebo/White</material>
     <selfCollide>false</selfCollide>
   </gazebo>
-  <joint name="lh_WRJ2" type="revolute">
+  <link name="lh_wrist_intermediate"/>
+  <joint name="lh_WRJ3" type="revolute">
     <parent link="lh_forearm"/>
-    <child link="lh_wrist"/>
+    <child link="lh_wrist_intermediate"/>
     <origin rpy="0 0 0" xyz="0 -0.010 0.21301"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-1.4" upper="1.5708" velocity="2.0"/>
+    <dynamics damping="0.1"/>
+  </joint>
+  <joint name="lh_WRJ2" type="revolute">
+    <parent link="lh_wrist_intermediate"/>
+    <child link="lh_wrist"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 -1 0"/>
     <limit effort="10" lower="-0.5235987755982988" upper="0.17453292519943295" velocity="2.0"/>
     <dynamics damping="0.1"/>
@@ -2622,7 +2631,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="lh_THJ4" type="fixed">
+  <joint name="lh_THJ4" type="revolute">
     <parent link="lh_thbase"/>
     <child link="lh_thproximal"/>
     <origin rpy="0 -1.5708 0" xyz="0 0 0"/>
@@ -2669,7 +2678,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="lh_THJ3" type="fixed">
+  <joint name="lh_THJ3" type="revolute">
     <parent link="lh_thproximal"/>
     <child link="lh_thhub"/>
     <origin rpy="0 0 0" xyz="0 0 0.038"/>
@@ -2723,7 +2732,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="lh_THJ2" type="fixed">
+  <joint name="lh_THJ2" type="revolute">
     <parent link="lh_thhub"/>
     <child link="lh_thmiddle"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -2770,7 +2779,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="lh_THJ1" type="fixed">
+  <joint name="lh_THJ1" type="revolute">
     <parent link="lh_thmiddle"/>
     <child link="lh_thdistal"/>
     <origin rpy="0 0 0" xyz="0 0 0.032"/>
@@ -2827,7 +2836,7 @@
   <joint name="right_hand_to_left_hand" type="prismatic">
     <parent link="rh_forearm"/>
     <child link="lh_forearm"/>
-    <origin rpy="1.5708 0 3.1415" xyz="0.2 -0.45 0.4"/>
+    <origin rpy="1.5708 0 3.1415" xyz="0 -0.375 0.5"/> # xyz="0 -0.40 0.45" confirmed to work
     <axis xyz="-1 0 0"/>
     <limit effort="1000" lower="0.2" upper="1" velocity="0.5"/>
   </joint>
