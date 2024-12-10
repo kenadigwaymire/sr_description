@@ -58,7 +58,7 @@
   <joint name="world_joint" type="fixed">
     <parent link="world"/>
     <child link="rh_forearm"/>
-    <origin rpy="-1.5708 3.1415 0" xyz="0.0 0.0 0.200"/>
+    <origin rpy="-1.5708 3.1415 0" xyz="0.0 0.0 0.280"/>
   </joint>
   <link name="rh_forearm">
     <inertial>
@@ -2836,7 +2836,7 @@
   <joint name="right_hand_to_left_hand" type="prismatic">
     <parent link="rh_forearm"/>
     <child link="lh_forearm"/>
-    <origin rpy="1.5708 0 3.1415" xyz="0 -0.375 0.420"/> # xyz="0 -0.40 0.45" confirmed to work
+    <origin rpy="1.5708 0 3.1415" xyz="0 -0.455 0.400"/> # xyz="0 -0.40 0.45" confirmed to work
     <axis xyz="-1 0 0"/>
     <limit effort="1000" lower="0.2" upper="1" velocity="0.5"/>
   </joint>
