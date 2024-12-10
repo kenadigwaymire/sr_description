@@ -1243,7 +1243,7 @@
   <joint name="rh_THJ4" type="fixed">
     <parent link="rh_thbase"/>
     <child link="rh_thproximal"/>
-    <origin rpy="0 -0.205 0" xyz="0 0 0"/>
+    <origin rpy="0 0.4 0" xyz="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit effort="3" lower="0.0" upper="1.2217304763960306" velocity="4.0"/>
     <dynamics damping="0.2"/>
