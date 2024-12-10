@@ -1195,7 +1195,7 @@
   <joint name="rh_THJ5" type="fixed">
     <parent link="rh_palm"/>
     <child link="rh_thbase"/>
-    <origin rpy="0.0 0.0 -1.0457963267948966" xyz="0.034 -0.00858 0.029"/>
+    <origin rpy="0.0 0.0 -2" xyz="0.034 -0.00858 0.029"/>
     <axis xyz="0 0 -1"/>
     <limit effort="5.0" lower="-1.0471975511965976" upper="1.0471975511965976" velocity="4.0"/>
     <dynamics damping="0.2"/>
